@@ -5,11 +5,13 @@ import com.martinaldair.backend.examenv2.repository.impl.PersonaDaoImpl;
 import com.martinaldair.backend.examenv2.service.PersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Martin Aldair
  */
+@Service
 public class PersonaServiceImpl implements PersonaService {
 
     @Autowired

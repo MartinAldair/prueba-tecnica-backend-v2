@@ -11,6 +11,7 @@ import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.servers.Server;
+import org.springdoc.core.GroupedOpenApi;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-10-09T22:13:45.179584128Z[GMT]")
 @Configuration
@@ -46,6 +47,17 @@ public class SwaggerDocumentationConfig {
         return new ExternalDocumentation()
                 .description("Más información sobre el examen")
                 .url("http://pruebatecnicav2.mx");
+    }
+
+    @Bean
+    public GroupedOpenApi apiGroup() {
+        String[] paths = {"/persona/**"};
+        String packagesToScan[] = {"com.martinaldair.backend.examenv2.controller"};
+        return GroupedOpenApi.builder()
+                .group("persona")
+                .packagesToScan(packagesToScan)
+                .pathsToMatch(paths)
+                .build();
     }
 
 }
