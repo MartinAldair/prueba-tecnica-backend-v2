@@ -23,31 +23,34 @@ La cadena S consta únicamente de caracteres y espacios ASCII imprimibles.
 Ejercicio 2
 Dado la siguiente clase agrega el manejo de errores correspondientes y justifica él porque
 
- public class Examen {
-	    public static void main (String [] args)     {	
-	            System.out.println("Intentamos ejecutar el bloque de instrucciones:");
-	            System.out.println("Instrucción 1.");
-	            int n = Integer.parseInt("M"); //error forzado en tiempo de ejecución.
-	            System.out.println("Instrucción 2.");
-	            System.out.println("Instrucción 3, etc.");
-	    }
+```java
+{
+    public static void main (String [] args) {	
+        System.out.println("Intentamos ejecutar el bloque de instrucciones:");
+        System.out.println("Instrucción 1.");
+	    int n = Integer.parseInt("M"); //error forzado en tiempo de ejecución.
+	    System.out.println("Instrucción 2.");
+	    System.out.println("Instrucción 3, etc.");
+    }
 }
+```
 
 Ejercicio 3
 Dado el siguiente método, agregar el código necesario para que el método genere una excepción personalizada en caso de error.
 
+```java
 public static Date getFecha(String fecha, String formato) {
-	SimpleDateFormat formatter = new SimpleDateFormat(formato);
-      String dateInString = fecha;
-      Date fechaSalida = null;
-    	try {
-		fechaSalida = formatter.parse(dateInString);
+    SimpleDateFormat formatter = new SimpleDateFormat(formato);
+    String dateInString = fecha;
+    Date fechaSalida = null;
+    try {
+        fechaSalida = formatter.parse(dateInString);
 	} catch (ParseException e) {
 		LOGGER.error("Error" + e);
 	}
-		
-    	return fechaSalida;
+    return fechaSalida;
 }
+```
 
 Ejercicio 4
 Genera un microservicio utilizando el framework de spring boot y compartir el código, considere los siguientes puntos:
