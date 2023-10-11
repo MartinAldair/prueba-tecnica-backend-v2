@@ -45,8 +45,8 @@ class Examenv2ApplicationTests {
      * $ Indica el final de una cadena
      */
     String stringPattern = "^([BDFHJLNPRTVXZbdfhjlnprtvxz?13579\\s]{1,200})$";
-    String passwordValid = "test 5 a0A pass007 ?xy1";
-    String passwordInvalid = "bd 35 Bbdfh135";
+    String passwordInvalido = "test 5 a0A pass007 ?xy1";
+    String passwordValido = "bd 35 Bbdfh135";
 
     /** 
      * Como input debe recibir una cadena S de N caracteres.  La cadena S se puede 
@@ -68,11 +68,11 @@ class Examenv2ApplicationTests {
      */
     @Test
     void ejercicio3() {
-        Pattern pattern = Pattern.compile(stringPattern);
-        Matcher isMatcher = pattern.matcher(passwordValid);
+        Pattern regexPattern = Pattern.compile(stringPattern);
+        Matcher isMatcher = regexPattern.matcher(passwordValido);
         Boolean isValidoContrasenia = isMatcher.matches();
         if (!isValidoContrasenia) {
-            log.info("La contraseña no cumple con el patron de requisitos para ser valida" + isValidoContrasenia);
+            log.info("La contraseña no cumple con el patron de requisitos para ser valida " + isValidoContrasenia);
         } else {
             String[] password = isMatcher.group().split(" ");
             String longestPassword = Arrays.asList(password).stream().max(Comparator.comparingInt(String::length)).get();
